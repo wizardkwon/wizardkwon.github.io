@@ -12,16 +12,54 @@ h1{
     flex-wrap: wrap;
     gap: 20px;
     width: fit-content;
-    background-color: rgb(92, 201, 243);
+    background-color: rgb(255, 255, 255);
+    width: 80% ;
+    margin: auto;
 }
 
 .search_box{
     width: fit-content;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .result_card{
-    width: 180px;
-    height: 220px;
-    background-color: rgb(190, 240, 255);
+    display: flex;
+    flex-direction: column;
+
+   align-items: center;
+    margin: auto;
+    width: 300px;
+    height: 450px;
+    background-color: rgb(243, 242, 242);
+}
+.book_description{
+    margin-top: 20px;
+    width:180px; 
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+img {
+    height: 60%;
+}
+.book_title{
+    margin-top: 2px;
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   padding-left: 20px;
+   padding-right: 20px;
+   
+}
+.price {
+    text-decoration: line-through;
+    color: gray;
+}
+.sale_price {
+    font-family: sans-serif;
+    color: red;
+}
+.tempP{
+    padding-top: 10px;
+    font-size: 10px;
 }
