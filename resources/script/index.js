@@ -104,5 +104,15 @@ const bookSearch = new Project(
     ['VanilaJS', 'jQeury', 'Kakao Search API'],
     ['2023.03.13', "2023.03.13"]
 );
-
 addProject(bookSearch, "frontend", "contain", "center");
+
+const omok = new Project(
+    "/omok",
+    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "omok",
+    "omok omok",
+    ['VanilaJS', 'jQeury', 'Kakao Search API'],
+    ['2023.03.13', "2023.04.30"]
+);
+
+addProject(omok, "frontend", "cover", "center");
