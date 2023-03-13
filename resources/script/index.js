@@ -108,7 +108,7 @@ addProject(bookSearch, "frontend", "contain", "center");
 
 const omok = new Project(
     "/omok",
-    "/resources/images/omok.png",
+    "https://play-lh.googleusercontent.com/b3YbxE9rDerRe1mnJXcoy2RfppdVUKDkFR0rghzm0dBUETdGhzC5_Vh_DWMboFPC8w",
     "omok",
     "omok omok",
     ['VanilaJS', 'jQeury', 'Kakao Search API'],
