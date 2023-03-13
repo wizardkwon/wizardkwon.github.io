@@ -12,7 +12,7 @@ searchBox.addEventListener("submit", e =>{
 function searchRequest(query){
     console.log("query: ", query);
   $.ajax({
-    "url": "https://dapi.kakao.com/v2/local/search/address?query=서울",
+    "url": "https://dapi.kakao.com/v2/local/search/address?query=강동구청",
     "method": "GET",
     "timeout": 0,
     "headers": {

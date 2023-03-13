@@ -9,6 +9,7 @@
 
 // ajax : 비동기 방식으로 페이지의 일부 정보를 갱신할 수 있는 기술
 let page = 1;
+let size = 20;
 const container = document.querySelector(".container");
 const query = document.querySelector(".query");
 const searchBox = document.querySelector(".search_box");
@@ -18,13 +19,14 @@ searchBox.addEventListener("submit", e =>{
         page = 1
         searchRequest(query.value, page);
     }
+    query.value = "";
     
 })
 
 function searchRequest(query){
     console.log("query: ", query);
 $.ajax({
-      "url": `https://dapi.kakao.com/v3/search/book?query=${query}&page=${page}&size=10&target=titl`,
+      "url": `https://dapi.kakao.com/v3/search/book?query=${query}&page=${page}&size=${size}&target=title`,
       "method": "GET",
       "timeout": 0,
       "headers": {
@@ -101,6 +103,40 @@ $.ajax({
             tempP.append(pPubl);
 
         }
+
+        $(".paging").empty();
+        let pageLength = response.meta.pageable_count;
+        let pageCount = Math.ceil(pageLength/size);
+        let pageContents = "";
+        pageContents += '<img'; 
+        if(page > 1){
+        pageContents += ' class="before" src="images/before.png"';
+        }
+        pageContents += '>';
+        pageContents += '<span>' +page + '/' + pageCount+'</span>';
+
+        pageContents += '<img'; 
+        if(response.meta.is_end === false){
+            pageContents += ' class="after" src="images/after.png"';
+        }
+        pageContents += '>';
+        $(".paging").append(pageContents);
+
+        if(page > 1){
+            const before = document.querySelector(".before");
+            before.addEventListener("click",e =>{
+                page--;
+                searchRequest(query, page);
+            })
+        }
+        if(response.meta.is_end === false){
+            const after = document.querySelector(".after");
+            after.addEventListener("click",e =>{
+                page++;
+                searchRequest(query, page);
+            })
+        }
+
     //     <div class="result_card">
     //     <img class="book_img" src="/book.png">
     //     <h4 class="book_title">도서 제목</h4>

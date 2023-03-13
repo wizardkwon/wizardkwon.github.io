@@ -63,3 +63,14 @@ img {
     padding-top: 10px;
     font-size: 10px;
 }
+.paging {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.before {
+    width: 70px;
+}
+.after {
+    width: 70px;
+}
