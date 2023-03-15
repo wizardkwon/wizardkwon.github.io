@@ -1,158 +1,158 @@
-const size = 10;
-let turn = 1; // player 번호 1,2 변화
-let win = 0; // !== 0 일시 승리자 player번호
-let click = 0; // === 100 && won === 0 draw
+const gridContainer = document.querySelector(".grid-container");
+const player = document.querySelector(".player");
 
-const root = document.getElementById("root");
-const map = document.createElement("div");
-map.setAttribute("class", "map");
+const P1 = document.createElement("span");
+const P2 = document.createElement("span");
+const br = document.createElement("br");
+const curP = document.createElement("p");
+P1.setAttribute("class","p1");
+P2.setAttribute("class","p2");
+curP.setAttribute("class","curP");
+P1.innerText="PLAYER ● |"
+P2.innerText=" PLAYER ○"
 
-setMap();
+player.append(P1);
+player.append(P2);
 
-function setMap() {
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-            let id = `y${i}x${j}`;
-            const item = document.createElement("div");
-            item.setAttribute("class", "box");
-            item.setAttribute("id", id);
+let size = 13;
 
-            item.addEventListener("click", e => {
-                if (item.innerText === "") {
-                    click++;
-                    item.innerText = (turn === 1 ? "⚫" : "⚪");
+// 바둑판 그리드
+for(let i=0; i<size+1; i++) {
+    for(let j=0; j<size+1; j++) {
+        const gridItem = document.createElement("div");
 
-                    winCondition();
+        gridItem.setAttribute("class", `grid-item`);
 
-                    turn = turn === 1 ? 2 : 1;
+        gridContainer.append(gridItem);
+    }
+}
 
+const playContainer = document.querySelector(".play-container");
+
+for(let i=0; i<size; i++) {
+    for(let j=0; j<size; j++) {
+        const playItem = document.createElement("div");
+        const id = `y${i}x${j}`;
+
+        playItem.setAttribute("class", `play-item`);
+        playItem.setAttribute("id", id);
+
+        playContainer.append(playItem);
+    }
+}
+
+let turn = 1;
+let win = 0;
+
+marking();
+reset();
+
+function marking() {
+   
+        const mark = document.getElementsByClassName("play-item");
+ 
+    for(let i=0; i<mark.length; i++) {
+        mark[i].addEventListener("click", e =>{
+            if((e.target.className === "play-item2" || e.target.className === "play-item") && win === 0){
+                e.target.setAttribute("class", `P${turn}`);
+                checkWin();
+                if(turn === 1){
+                    curP.innerText=" 백돌 ○ 차례"
+                    player.append(curP);
+                }else{
+                    curP.innerText=" 흑돌 ● 차례"
+                    player.append(curP);
                 }
-            })
-            map.append(item);
-        }
-        root.append(map);
+                turn = turn === 1 ? 2 : 1;
+            }
+        })
     }
 }
 
-function winCondition() {
-    checkrow();
-    checkcolumn();
-    checkdiagonal();
-    checkreverse();
+function checkWin() {
+    checkHori();
+    checkVert();
+    checkLeftDiagonal();
+    checkRightDiagonal();
+    if (win !== 0)
+        alert(`P${win} WIN!!!`);
+};
 
-    if (win === 1) {
-        alert(`Player${win}  흑돌 WIN!!`);
-    }else  if (win === 2){
-        alert(`Player${win}  백돌 WIN!!`);
-    }
-
-    console.log("click : ", click);
-    console.log("win : ", win);
-
-    if (win === 0 && click === size * size) {
-        alert("DRAW !");
-    }
-}
-
-function checkrow() {
-    for (let i = 0; i < size; i++) {
+function checkHori() {
+    for(let i=0; i<size; i++) {
         let count = 0;
-        for (let j = 0; j < size; j++) {
+        for(let j=0; j<size; j++) {
             const target = `y${i}x${j}`;
-            const box = map.querySelector(`#${target}`);
-            const text = box.innerText;
-            if (text === (turn === 1 ? "⚫" : "⚪")) {
-                count++;
-                console.log("count : ", count);
-            } else {
-                count = 0;
-            }
+            const id = document.querySelector(`#${target}`);
 
-            if (count == 5) {
+            if(id.className === `P${turn}`)
+                count ++;
+            else
+                count = 0;
+            if(count === 5)
                 win = turn;
-                console.log("win : ", win);
-            }
         }
     }
 }
 
-function checkcolumn() {
-    for (let i = 0; i < size; i++) {
+function checkVert() {
+    for(let i=0; i<size; i++) {
         let count = 0;
-        for (let j = 0; j < size; j++) {
+        for(let j=0; j<size; j++) {
             const target = `y${j}x${i}`;
-            const box = map.querySelector(`#${target}`);
-            const text = box.innerText;
+            const id = document.querySelector(`#${target}`);
 
-            if (text === (turn === 1 ? "⚫" : "⚪")) {
-                count++;
-                console.log("count : ", count);
-            } else {
+            if(id.className === `P${turn}`)
+                count ++;
+            else
                 count = 0;
-            }
-
-            if (count == 5) {
+            if(count === 5)
                 win = turn;
-                console.log("win : ", win);
-            }
         }
     }
 }
 
-function checkdiagonal() {
-    for (let i = 0; i < size - 4; i++) {
-        for (let j = 0; j < size - 4; j++) {
+function checkLeftDiagonal() {
+    for(let i=0; i<size-4; i++) {
+        for(let j=0; j<size-4; j++) {
             let count = 0;
-            for (let k = 0; k < 5; k++) {
-                const target = `y${i + k}x${j + k}`;
-                const box = map.querySelector(`#${target}`);
-                const text = box.innerText;
-
-                if (text === (turn === 1 ? "⚫" : "⚪")) {
-                    count++;
-                    console.log("count : ", count);
-                } else {
+            for(let k=0; k<5; k++) {
+                const target = `y${i+k}x${j+k}`;
+                const id = document.querySelector(`#${target}`);
+    
+                if(id.className === `P${turn}`)
+                    count ++;
+                else
                     count = 0;
-                }
-
-                if (count == 5) {
+                if(count === 5)
                     win = turn;
-                    console.log("win : ", win);
-                }
             }
         }
     }
 }
 
-function checkreverse() {
-    for (let i = 4; i < size; i++) {
-        for (let j = 0; j < size - 4; j++) {
+function checkRightDiagonal() {
+    for(let i=0; i<size-4; i++) {
+        for(let j=4; j<size; j++) {
             let count = 0;
-            for (let k = 0; k < 5; k++) {
-                const target = `y${j + k}x${i - k}`;
-                console.log(target);
-                const box = map.querySelector(`#${target}`);
-                const text = box.innerText;
-
-                if (text === (turn === 1 ? "⚫" : "⚪")) {
-                    count++;
-                    console.log("count : ", count);
-                } else {
+            for(let k=0; k<5; k++) {
+                const target = `y${i+k}x${j-k}`;
+                const id = document.querySelector(`#${target}`);
+    
+                if(id.className === `P${turn}`)
+                    count ++;
+                else
                     count = 0;
-                }
-
-                if (count == 5) {
+                if(count === 5)
                     win = turn;
-                    console.log("win : ", win);
-                }
             }
         }
     }
 }
 
-function reset() {
-    turn = 1;
-    win = 0;
-    click = 0;
-    location.reload();
+function reset(){
+    const reset = document.querySelector(".reset");
+    reset.addEventListener("click", e =>{
+        location.reload();
+    })
 }
