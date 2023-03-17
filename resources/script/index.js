@@ -116,3 +116,13 @@ const omok = new Project(
 );
 
 addProject(omok, "frontend", "cover", "center");
+
+const atm = new Project(
+    "/atm",
+    "https://github.com/wizardkwon/atm",
+    "Book Search",
+    "Book Search and Inquiry Service",
+    ['VanilaJS', 'jQeury', 'Kakao Search API'],
+    ['2023.03.13', "2023.03.13"]
+);
+addProject(bookSearch, "frontend", "contain", "center");
