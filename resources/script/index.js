@@ -118,11 +118,11 @@ const omok = new Project(
 addProject(omok, "frontend", "cover", "center");
 
 const atm = new Project(
-    "/atm",
-    "https://github.com/wizardkwon/atm",
-    "Book Search",
-    "Book Search and Inquiry Service",
-    ['VanilaJS', 'jQeury', 'Kakao Search API'],
-    ['2023.03.13', "2023.03.13"]
+    "/https://github.com/wizardkwon/atm",
+    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "atm",
+    "atm system",
+    ['java'],
+    ['2023.03.15', "2023.03.19"]
 );
-addProject(bookSearch, "frontend", "contain", "center");
+addProject(atm, "backend");
