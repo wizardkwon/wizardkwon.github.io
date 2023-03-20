@@ -118,11 +118,20 @@ const omok = new Project(
 addProject(omok, "frontend", "cover", "center");
 
 const atm = new Project(
-    "/https://github.com/wizardkwon/atm",
-    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "https://github.com/wizardkwon/atm",
+    "https://play-lh.googleusercontent.com/qvzm-DNbDlS_bdbYU-9e4BiKDvECaCNCHzB0IGTcZHcVJDD63pPngYFmgtvIW2rGWxw",
     "atm",
     "atm system",
     ['java'],
     ['2023.03.15', "2023.03.19"]
 );
 addProject(atm, "backend");
+const rpg_game = new Project(
+    "https://github.com/wizardkwon/rpg-game.git",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5x1Z4YrGwKaaxj0X2twefhnhGMTgtH12Caw&usqp=CAU",
+    "rpg-game",
+    "rpg-game",
+    ['java'],
+    ['2023.03.18', "2023.03.25"]
+);
+addProject(rpg_game, "backend");
