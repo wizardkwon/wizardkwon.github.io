@@ -135,3 +135,12 @@ const rpg_game = new Project(
     ['2023.03.18', "2023.03.25"]
 );
 addProject(rpg_game, "backend");
+const zombie = new Project(
+    "https://github.com/wizardkwon/zombie",
+    "https://previews.123rf.com/images/antonbrand/antonbrand1303/antonbrand130300003/18811843-%ED%9D%B0%EC%83%89%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%EA%B7%80%EC%97%AC%EC%9A%B4-%EB%85%B9%EC%83%89-%EC%A2%80%EB%B9%84-%EB%A7%8C%ED%99%94.jpg",
+    "zombie-game",
+    "zombie-game",
+    ['java'],
+    ['2023.03.25', "2023.03.29"]
+);
+addProject(zombie, "backend");
