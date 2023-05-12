@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.title {
+    border: solid 1px rgb(40, 40, 229);
+    border-radius: 20%;
+    color: rgb(255, 255, 255);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+span {
+    display: flex;
+    justify-content: space-between;
+}

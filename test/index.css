@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+   height: 100vh;
+
+}
+header {
+    background-color: rgb(23, 23, 253);
+    padding-top: 20px;
+    text-align: center;
+    color: aliceblue;
+    height: 7%;
+}
+nav {
+    background-color: rgb(130, 130, 250);
+    height: 3%;
+    padding-top: 5px;
+}
+button {
+    margin-left: 50px;
+    color: aliceblue;
+    text-align: center;
+    background-color: rgb(130, 130, 250);
+}
+section {
+    background-color: rgb(214, 214, 255);
+    height: 87%;
+
+}
+footer{
+    background-color: rgb(23, 23, 253);
+    text-align: center;
+    color: aliceblue;
+    height: 3%;
+}
+.footer {
+    font-size: 12px;
+    padding-top: 10px;
+}
