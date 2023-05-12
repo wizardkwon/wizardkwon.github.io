@@ -114,14 +114,14 @@ const omok = new Project(
   "omok",
   "omok omok",
   ["VanilaJS", "jQeury", "Kakao Search API"],
-  ["2023.03.13", "2023.04.30"]
+  ["2023.03.13", "2023.03.21"]
 );
 
 addProject(omok, "frontend", "cover", "center");
 
 const PMS = new Project(
   "http://parkingmanager.store",
-  "/resources/images/PMS.png",
+  "/resources/images/parking.png",
   "PMS주차예약매니저",
   "PMS(JSP project)",
   ["ajax", "jsp", "mySQL", "html", "js"],
@@ -144,7 +144,7 @@ const injoy = new Project(
     "js",
     "firebasse-cloud-massaging",
   ],
-  ["2023.03.25", "2023.03.29"]
+  ["2023.04.27", "2023.05.14"]
 );
 addProject(injoy, "backend", "cover", "center");
 
@@ -154,7 +154,7 @@ const atm = new Project(
   "atm",
   "atm system",
   ["java"],
-  ["2023.03.15", "2023.03.19"]
+  ["2023.03.15", "2023.03.25"]
 );
 addProject(atm, "backend", "cover", "center");
 const rpg_game = new Project(
@@ -169,7 +169,7 @@ addProject(rpg_game, "backend", "cover", "center");
 
 const zombie = new Project(
   "https://github.com/wizardkwon/zombie",
-  "zom.png",
+  "/resources/images/zom.png",
   "zombie-game",
   "zombie-game",
   ["java"],
